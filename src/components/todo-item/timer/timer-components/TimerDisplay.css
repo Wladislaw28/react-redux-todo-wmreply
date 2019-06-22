@@ -1,0 +1,10 @@
+.display{
+	font-size: 30px;
+	font-family: 'Franklin Gothic Medium', sans-serif;
+	margin-right: 30px;
+}
+
+.display span{
+	font-size: 55px;
+	font-family: 'Bauhaus 93', sans-serif;
+}

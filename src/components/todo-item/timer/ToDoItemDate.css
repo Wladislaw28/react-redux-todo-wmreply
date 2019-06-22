@@ -1,0 +1,43 @@
+.todo-item-date {
+	font-size: 20px;
+	border: 2px solid #c5564a;
+	min-height: 160px;
+	display: flex;
+	align-items: center;
+	list-style: none;
+	padding: 0 16px 0 60px;
+	cursor: pointer;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	position: relative;
+	background-color: white;
+}
+
+.text {
+	font-family: 'Arial', sans-serif;
+	font-size: 25px;
+}
+
+.completed {
+	text-decoration: line-through;
+}
+
+.completed,
+.fa-check-circle {
+	color: #c5564a;
+}
+
+.fa-times {
+	transition: all .3s ease;
+	color: red;
+}
+
+.mark {
+	position: absolute;
+	left: 20px;
+}
+
+.todo-item:hover .fa-times {
+	color: #c5564a;
+}
