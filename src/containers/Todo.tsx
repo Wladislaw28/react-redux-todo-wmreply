@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import ToDoInput from '../components/todo-input/input/ToDoInput';
@@ -6,11 +6,29 @@ import Button from '../components/todo-input/button/Button';
 import Footer from '../components/footer/Footer';
 import ToDoList from '../components/todo-list/ToDoList';
 import Searchbar from '../components/search/SearchBar';
-import Input from '../components/todo-input/input/Input';
 import {addTask, addTaskData, addTaskSub, deleteTask, searchTask, completeTask, changeFilter} from "../actions/actionCreator";
 import './Todo.css';
 
-class ToDo extends Component {
+export interface ToDoProps {
+    addTask: typeof addTask;
+    addTaskData: typeof addTaskData;
+    addTaskSub: typeof addTaskSub;
+    deleteTask: typeof deleteTask;
+    searchTask: typeof searchTask;
+    completeTask: typeof completeTask;
+    changeFilter: typeof changeFilter;
+    tasks: [];
+    filters: any;
+}
+
+export interface ToDoState {
+    taskText: string;
+    taskData: string;
+    searchText: string;
+    isExpansion: boolean;
+}
+
+class ToDo extends React.Component<ToDoProps,ToDoState> {
 
 	state = {
 		taskText: '',
@@ -73,16 +91,16 @@ class ToDo extends Component {
 		const { taskText, isExpansion } = this.state;
 
 		if (taskText.length > 3) {
-			const { addTask } = this.props;
+			const { addTaskSub } = this.props;
 
-			addTask((new Date()).getTime(), taskText, false, false );
+            addTaskSub((new Date()).getTime(), taskText, false, false);
 
 			this.setState({
 				taskText: '',
 				isExpansion: false
 			})
 		}
-	}
+	};
 
 	getActiveTasksCounter = tasks => tasks.filter(task => !task.isCompleted).length;
 
@@ -112,6 +130,7 @@ class ToDo extends Component {
 		return (
 			<div className="todo-wrapper">
 				<Searchbar update={this.updateData.bind(this)} searchTask={searchTask} type="text" searchText={searchText}   />
+
 				<div className="todo-form">
 
 					<ToDoInput onChange={this.handleInputChange} value={taskText} type="text"
@@ -119,14 +138,16 @@ class ToDo extends Component {
 					<ToDoInput onChange={this.handleInputDataChange} value={taskData} type="date"
 							   className='input__field input__field--isao' />
 					<h2 className="h2_checkbox">Expand the task for subtasks?</h2>
-					<Input id="checkbox" type="checkbox" checked={isExpansion} onChange={this.handleCheckBoxChange} />
-					<Button onClick={this.addTask}>Add Simple task</Button>
-					<Button onClick={this.addTaskData}>Add task with data</Button>
-					<Button onClick={this.addTaskSub}>Add Expansion Task</Button>
-					<Button>Clear Complete Task</Button>
+					<input id="checkbox" type="checkbox" className="input input-checkbox"
+                           checked={isExpansion} onChange={this.handleCheckBoxChange} />
+					<Button disabled={false} className="button button--pipaluk button--text-thick"
+                            onClick={this.addTask}>Add Simple task</Button>
+					<Button disabled={false} className="button button--pipaluk button--text-thick"
+                            onClick={this.addTaskData}>Add task with data</Button>
+					<Button disabled={false} className="button button--pipaluk button--text-thick"
+                            onClick={this.addTaskSub}>Add Expansion Task</Button>
 
 				</div>
-
 				{isTasksExist && <Footer changeFilter={changeFilter} amount={taskCounter} activeFilter={filters} />}
 				{isTasksExist && <ToDoList completeTask={completeTask} tasksList={filteredTasks} deleteTask={deleteTask} />}
 			</div>

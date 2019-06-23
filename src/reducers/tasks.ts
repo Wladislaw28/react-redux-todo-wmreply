@@ -1,4 +1,5 @@
 import {ADD_TASK, COMPLETE_TASK, DELETE_TASK, ADD_TASK_WITH_DATA, SEARCH_TASK, ADD_TASK_SUB} from '../constants';
+// @ts-ignore
 import {load} from 'redux-localstorage-simple';
 
 let TASKS = load({ namespace: 'todo-list' });

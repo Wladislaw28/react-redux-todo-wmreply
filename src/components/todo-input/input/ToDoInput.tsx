@@ -1,9 +1,15 @@
-import React from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 
 import './ToDoInput.css';
 
-const ToDoInput = ({ value, onChange, onKeyPress, className, type }) => (
+export interface ToDoInputProps {
+    value: string;
+    className: string;
+    type: string;
+    onChange: ({ target: { value } }: { target: { value: any; }; }) => void;
+}
+
+const ToDoInput: React.FunctionComponent<ToDoInputProps> = ({ value, onChange, className, type }) => (
 	<div className="todo-input-wrapper">
 		<span className="input input--isao">
 			<input
@@ -11,7 +17,6 @@ const ToDoInput = ({ value, onChange, onKeyPress, className, type }) => (
 				className={className}
 				onChange={onChange}
 				value={value}
-				onKeyPress={onKeyPress}
 			/>
 			<label className="input__label input__label--isao">
 				<span className="input__label-content input__label-content--isao">Enter text to task</span>
@@ -19,20 +24,6 @@ const ToDoInput = ({ value, onChange, onKeyPress, className, type }) => (
 		</span>
 	</div>
 );
-
-ToDoInput.propTypes = {
-	onChange: PropTypes.func,
-	onKeyPress: PropTypes.func,
-	value: PropTypes.string,
-	type: PropTypes.string,
-};
-
-ToDoInput.defaultProps = {
-	onChange: () => {},
-	onKeyPress: () => {},
-	value: '',
-	type: '',
-};
 
 export default ToDoInput;
 

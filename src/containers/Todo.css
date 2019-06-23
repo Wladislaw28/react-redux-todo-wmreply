@@ -12,9 +12,18 @@
 }
 
 .h2_checkbox{
+	position: absolute;
 	color: white;
 	font-family: 'Franklin Gothic Medium', sans-serif;
 	font-size: 24px;
 	margin: 0 auto;
+}
+
+.input-checkbox{
+	position: absolute;
+	display: block;
+	width: 20px;
+	height: 20px;
+	margin-left: 412px;
 }
 

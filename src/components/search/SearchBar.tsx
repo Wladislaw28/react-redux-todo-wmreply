@@ -1,8 +1,17 @@
 import React from 'react';
+import {searchTask} from '../../actions/actionCreator';
+import ToDo from '../../containers/Todo';
 
 import './SearchBar.css';
 
-const SearchBar = ({ searchText , searchTask, type, update}) => {
+export interface SearchBarProps {
+    searchText: string;
+    searchTask: typeof searchTask;
+    type: string;
+    update: typeof ToDo;
+}
+
+const SearchBar: React.SFC<SearchBarProps> = ({ searchText , searchTask, type, update}) => {
 
 	const dataSearch = e => {
 		const value = e.target.value.toLowerCase();

@@ -1,11 +1,27 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
 import Button_Date from './timer-components/Button_Date';
 import TimerDisplay from './timer-components/TimerDisplay';
+import {completeTask, deleteTask} from '../../../actions/actionCreator';
+
 
 import './ToDoItemDate.css';
 
-class ToDoItemDate extends React.Component{
+export interface ToDoItemDateProps {
+    completeTask: typeof completeTask;
+    deleteTask: typeof deleteTask;
+    id: number;
+    text: string;
+    data: string;
+    isCompleted: boolean;
+}
+
+export interface ToDoItemDateState {
+    timer: any;
+    timeLeft: any;
+    isCompletedDate: boolean;
+}
+
+class ToDoItemDate extends React.Component<ToDoItemDateProps, ToDoItemDateState>{
 
 	constructor(props) {
 		super(props);
@@ -38,7 +54,7 @@ class ToDoItemDate extends React.Component{
 	render(){
 		const {completeTask, deleteTask, id, text, data, isCompleted} = this.props;
 		const {timeLeft, isCompletedDate} = this.state;
-		let data_sec = Date.parse(data) / 100000;
+		 let data_sec = Date.parse(data) / 100000;//не знаю, как высчитать разность между датами( 2- чник)))
 
 		return(
 			<div className="todo-item-div">
@@ -46,7 +62,7 @@ class ToDoItemDate extends React.Component{
 					<i onClick={ () => completeTask(id) }
 					   className={isCompleted ? 'mark far fa-check-circle' : 'mark far fa-circle'} />
 					<span className={isCompletedDate ? 'completed text' : 'text'}>{text}</span>
-					<Button_Date time={10} startTimer={this.startTimer} />
+					<Button_Date time={data_sec} startTimer={this.startTimer} />
 					<TimerDisplay timeLeft = {timeLeft}/>
 					<i onClick={ () => deleteTask(id) } className="fas fa-times" />
 				</li>
@@ -54,23 +70,5 @@ class ToDoItemDate extends React.Component{
 		)
 	}
 }
-
-ToDoItemDate.propTypes = {
-	text: PropTypes.string,
-	data: PropTypes.string,
-	isCompleted: PropTypes.bool,
-	deleteTask: PropTypes.func,
-	completeTask: PropTypes.func,
-	id: PropTypes.number
-};
-
-ToDoItemDate.defaultProps = {
-	text: '',
-	data: '1999-08-30',
-	isCompleted: false,
-	deleteTask: () => {},
-	completeTask: () => {},
-	id: 0
-};
 
 export default ToDoItemDate;

@@ -1,4 +1,5 @@
 import {ADD_TASK_IN_SUBTASK, DELETE_SUBTASK, COMPLETE_SUBTASK} from '../constants';
+// @ts-ignore
 import {load} from 'redux-localstorage-simple';
 
 let TASKSUB = load({ namespace: 'todo-list-sub' });

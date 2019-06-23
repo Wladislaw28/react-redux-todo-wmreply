@@ -1,10 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import {FILTERS_BTN} from '../../constants';
+import {changeFilter} from '../../actions/actionCreator';
 
 import './Footer.css';
 
-const Footer = ({amount, activeFilter, changeFilter}) => (
+export interface FooterProps{
+    amount: number;
+    activeFilter: string;
+    changeFilter: typeof changeFilter;
+}
+
+const Footer:  React.FunctionComponent<FooterProps> = ({amount, activeFilter, changeFilter}) => (
 	<div className="footer">
 		<span className="amount">{`${amount} Task left`}</span>
 		<div className="btn-group">
@@ -16,17 +22,5 @@ const Footer = ({amount, activeFilter, changeFilter}) => (
 		</div>
 	</div>
 );
-
-Footer.propTypes  = {
-	amount: PropTypes.number,
-	activeFilter: PropTypes.string,
-	changeFilter: PropTypes.func
-};
-
-Footer.defaulProps = {
-	amount: 0,
-	activeFilter: 'all',
-	changeFilter: () => {},
-};
 
 export default Footer;

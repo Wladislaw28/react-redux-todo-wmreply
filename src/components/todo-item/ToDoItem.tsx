@@ -1,9 +1,17 @@
-import React, {Component} from 'react';
-import PropTypes from 'prop-types';
+import * as React from 'react';
+import {completeTask, deleteTask} from '../../actions/actionCreator';
 
 import './ToDoItem.css';
 
-class ToDoItem extends React.Component{
+export interface ToDoItemProps {
+    id: string;
+    text: string;
+    isCompleted: boolean;
+    completeTask: typeof completeTask;
+    deleteTask: typeof deleteTask;
+}
+
+class ToDoItem extends React.Component<ToDoItemProps,{}>{
 
 	render(){
 		const {completeTask, isCompleted, deleteTask, id, text} = this.props;
@@ -19,21 +27,5 @@ class ToDoItem extends React.Component{
 		)
 	}
 }
-
-ToDoItem.propTypes = {
-	text: PropTypes.string,
-	isCompleted: PropTypes.bool,
-	deleteTask: PropTypes.func,
-	completeTask: PropTypes.func,
-	id: PropTypes.number
-};
-
-ToDoItem.defaultProps = {
-	text: '',
-	isCompleted: false,
-	deleteTask: () => {},
-	completeTask: () => {},
-	id: 0
-};
 
 export default ToDoItem;

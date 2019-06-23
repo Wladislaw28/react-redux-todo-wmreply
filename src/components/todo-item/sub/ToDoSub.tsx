@@ -1,20 +1,43 @@
-import React, {Component} from 'react';
+import * as React from 'react';
 import { connect } from 'react-redux';
 
 import ToDoInput from '../../todo-input/input/ToDoInput';
 import Button from '../../todo-input/button/Button';
 import ToDoListSub from './ToDoListSub';
-import {addTaskInSubTask, deleteSubTask, completeSubTask, changeFilter} from '../../../actions/actionCreator';
+import {addTaskInSubTask, deleteSubTask, completeSubTask,
+    changeFilter, completeTask, deleteTask} from '../../../actions/actionCreator';
+import filters from '../../../reducers/filters';
+import tasksub from '../../../reducers/tasksub';
 
 import './ToDoSub.css';
 
-class ToDoSub extends React.Component{
+export interface ToDoSubProps {
+    id: string;
+    text: string;
+    completeTask: typeof completeTask;
+    deleteTask: typeof deleteTask;
+    isCompleted: boolean;
+    isExpansion: boolean;
+    filters: typeof filters;
+    tasksub: typeof tasksub;
+    deleteSubTask: typeof deleteSubTask;
+    completeSubTask: typeof completeSubTask;
+    addTaskInSubTask:typeof addTaskInSubTask;
+}
+
+export interface ToDoSubState {
+    subtaskText: string;
+
+}
+
+class ToDoSub extends React.Component<ToDoSubProps, ToDoSubState>{
 
 	state = {
 		subtaskText: ''
 	};
 
-	handleInputChange = ({ target: { value } }) => {
+
+    handleInputChange = ({ target: { value } })  => {
 		this.setState({
 			subtaskText: value,
 		})
@@ -53,8 +76,7 @@ class ToDoSub extends React.Component{
 		const isTasksSubExist = tasksub && tasksub.length > 0;
 		const filteredSubTasks = this.filterSubTasks(tasksub , filters);
 
-
-		return(
+        return(
 			<div className="todo-item-sub">
 				<li className="todo-item-sub">
 					<i onClick={ () => completeTask(id) }
@@ -64,7 +86,7 @@ class ToDoSub extends React.Component{
 						<div className="sub-todo-form">
 							<ToDoInput onChange={this.handleInputChange} value={subtaskText} type="text"
 									   className="input__field__subtask" />
-							<Button onClick={this.addTaskInSubTask} className="button-subtask">Add task</Button>
+							<Button disabled={false} onClick={this.addTaskInSubTask} className="button-subtask">Add task</Button>
 						</div>
 						{isTasksSubExist && <ToDoListSub completeSubTask={completeSubTask} tasksSubList={filteredSubTasks} deleteSubTask={deleteSubTask} />}
 					</div>

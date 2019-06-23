@@ -1,7 +1,11 @@
-import React, {Component} from 'react';
+import * as React from 'react';
 import './TimerDisplay.css';
 
-class TimerDisplay extends React.Component {
+export interface TimerDisplayProps{
+    timeLeft: number;
+}
+
+class TimerDisplay extends React.Component<TimerDisplayProps,{}> {
 	render() {
 		return <h1 className="display">left <br/>  <span>{this.props.timeLeft} </span> <br/> seconds</h1>
 	}
