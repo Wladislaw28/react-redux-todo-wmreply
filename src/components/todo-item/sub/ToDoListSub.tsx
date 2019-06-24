@@ -8,6 +8,7 @@ export interface TasksSubListProps {
     id: string;
     text: string;
     isCompleted: boolean;
+    typeTask: string;
 }
 
 export interface ToDoListSubProps {
@@ -18,9 +19,9 @@ export interface ToDoListSubProps {
 
 const ToDoListSub = ({tasksSubList, deleteSubTask, completeSubTask} : ToDoListSubProps) => (
 	<ul className="todo-list-sub">
-		{tasksSubList.map(({ id, text, isCompleted }) =>(
+		{tasksSubList.map(({ id, text, isCompleted, typeTask }) =>(
 				<ToDoItem completeTask={completeSubTask} deleteTask={deleteSubTask} id={id} key={id} text={text}
-			 				isCompleted={isCompleted} />
+			 				isCompleted={isCompleted} typeTask={typeTask}/>
 			))}
 	</ul>
 );

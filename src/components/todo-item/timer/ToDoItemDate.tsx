@@ -9,10 +9,11 @@ import './ToDoItemDate.css';
 export interface ToDoItemDateProps {
     completeTask: typeof completeTask;
     deleteTask: typeof deleteTask;
-    id: number;
+    id: string;
     text: string;
     data: string;
     isCompleted: boolean;
+    typeTask: string;
 }
 
 export interface ToDoItemDateState {
@@ -52,7 +53,7 @@ class ToDoItemDate extends React.Component<ToDoItemDateProps, ToDoItemDateState>
 
 
 	render(){
-		const {completeTask, deleteTask, id, text, data, isCompleted} = this.props;
+		const {completeTask, deleteTask, id, text, data, isCompleted, typeTask} = this.props;
 		const {timeLeft, isCompletedDate} = this.state;
 		 let data_sec = Date.parse(data) / 100000;//не знаю, как высчитать разность между датами( 2- чник)))
 

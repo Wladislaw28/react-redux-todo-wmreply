@@ -23,6 +23,7 @@ export interface ToDoSubProps {
     deleteSubTask: typeof deleteSubTask;
     completeSubTask: typeof completeSubTask;
     addTaskInSubTask:typeof addTaskInSubTask;
+    typeTask: string;
 }
 
 export interface ToDoSubState {
@@ -50,7 +51,7 @@ class ToDoSub extends React.Component<ToDoSubProps, ToDoSubState>{
 		if (subtaskText.length > 3) {
 			const {addTaskInSubTask} = this.props;
 
-			addTaskInSubTask((new Date()).getTime(), subtaskText, false);
+			addTaskInSubTask((new Date()).getTime(), subtaskText, false, 'simpletask');
 
 			this.setState({
 				subtaskText: ''
@@ -72,7 +73,7 @@ class ToDoSub extends React.Component<ToDoSubProps, ToDoSubState>{
 	render(){
 		const {subtaskText} = this.state;
 		const {completeTask, text, id, deleteTask, isCompleted, isExpansion,
-			tasksub, deleteSubTask, completeSubTask, filters } = this.props;
+			tasksub, deleteSubTask, completeSubTask, filters, typeTask } = this.props;
 		const isTasksSubExist = tasksub && tasksub.length > 0;
 		const filteredSubTasks = this.filterSubTasks(tasksub , filters);
 

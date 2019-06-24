@@ -17,7 +17,14 @@ const configureStore = preloadedState => (
 		composeEnhancers(
 			applyMiddleware(save({ namespace: 'todo-list'}))
 		),
-	)
+	),
+		createStore(
+			rootReducer,
+			preloadedState,
+			composeEnhancers(
+				applyMiddleware(save({ namespace: 'todo-list-sub'}))
+			),
+		)
 );
 
 const store = configureStore({});

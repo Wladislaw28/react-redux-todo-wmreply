@@ -9,12 +9,13 @@ export interface ToDoItemProps {
     isCompleted: boolean;
     completeTask: typeof completeTask;
     deleteTask: typeof deleteTask;
+    typeTask: string;
 }
 
 class ToDoItem extends React.Component<ToDoItemProps,{}>{
 
 	render(){
-		const {completeTask, isCompleted, deleteTask, id, text} = this.props;
+		const {completeTask, isCompleted, deleteTask, id, text, typeTask} = this.props;
 		return(
 			<div className="todo-item">
 				 		<li  className='todo-item'>

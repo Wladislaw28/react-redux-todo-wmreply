@@ -62,7 +62,7 @@ class ToDo extends React.Component<ToDoProps,ToDoState> {
 		if (taskText.length > 3) {
 			const { addTask } = this.props;
 
-			addTask((new Date()).getTime(), taskText, false);
+			addTask((new Date()).getTime(), taskText, false, 'simpletask');
 
 			this.setState({
 				taskText: ''
@@ -77,7 +77,7 @@ class ToDo extends React.Component<ToDoProps,ToDoState> {
 		if (taskText.length > 3) {
 			const { addTaskData } = this.props;
 
-			addTaskData((new Date()).getTime(), taskText, taskData, false);
+			addTaskData((new Date()).getTime(), taskText, taskData, false, 'datatask');
 
 			this.setState({
 				taskText: '',
@@ -93,7 +93,7 @@ class ToDo extends React.Component<ToDoProps,ToDoState> {
 		if (taskText.length > 3) {
 			const { addTaskSub } = this.props;
 
-            addTaskSub((new Date()).getTime(), taskText, false, false);
+            addTaskSub((new Date()).getTime(), taskText, false, true, 'subtask');
 
 			this.setState({
 				taskText: '',

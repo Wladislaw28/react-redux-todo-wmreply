@@ -5,34 +5,38 @@ import {
 
 
 
-export const addTask = (id, text, isCompleted) => ({
+export const addTask = (id, text, isCompleted, typeTask) => ({
 	type: ADD_TASK,
 	id,
 	text,
 	isCompleted,
+    typeTask
 });
 
-export const addTaskData = (id, text, data, isCompleted) => ({
+export const addTaskData = (id, text, data, isCompleted, typeTask) => ({
     type: ADD_TASK_WITH_DATA,
     id,
     text,
     data,
     isCompleted,
+    typeTask
 });
 
-export const addTaskSub = (id, text, isCompleted, isExpansion) => ({
+export const addTaskSub = (id, text, isCompleted, isExpansion, typeTask) => ({
     type: ADD_TASK_SUB,
     id,
     text,
     isCompleted,
-    isExpansion
+    isExpansion,
+    typeTask
 });
 
-export const addTaskInSubTask = (id, text, isCompleted) => ({
+export const addTaskInSubTask = (id, text, isCompleted, typeTask) => ({
     type: ADD_TASK_IN_SUBTASK,
     id,
     text,
-    isCompleted
+    isCompleted,
+    typeTask
 });
 
 export const deleteSubTask = id => ({

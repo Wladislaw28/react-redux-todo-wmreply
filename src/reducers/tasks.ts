@@ -13,7 +13,7 @@ if (!TASKS || !TASKS.tasks || !TASKS.tasks.length) {
 }
 
 // @ts-ignore
-const tasks = (state = TASKS.tasks, { id, text, data, isCompleted, valueSearch, isExpansion, type }) => {
+const tasks = (state = TASKS.tasks, { id, text, data, isCompleted, valueSearch, isExpansion, typeTask, type }) => {
 	switch (type) {
 		case ADD_TASK :
 			return [
@@ -21,6 +21,7 @@ const tasks = (state = TASKS.tasks, { id, text, data, isCompleted, valueSearch, 
 					id,
 					text,
 					isCompleted,
+                    typeTask
 				}
 			];
         case ADD_TASK_WITH_DATA:
@@ -30,6 +31,7 @@ const tasks = (state = TASKS.tasks, { id, text, data, isCompleted, valueSearch, 
                     text,
                     data,
                     isCompleted,
+                    typeTask
                 }
             ];
         case ADD_TASK_SUB:
@@ -38,7 +40,8 @@ const tasks = (state = TASKS.tasks, { id, text, data, isCompleted, valueSearch, 
                     id,
                     text,
                     isCompleted,
-                    isExpansion
+                    isExpansion,
+                    typeTask
                 }
             ];
 		case DELETE_TASK :

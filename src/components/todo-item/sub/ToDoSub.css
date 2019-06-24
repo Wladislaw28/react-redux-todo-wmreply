@@ -1,7 +1,8 @@
 .todo-item-sub {
-	font-size: 24px;
+	font-size: 18px;
 	border: 2px solid #c5564a;
-	max-height: 360px;
+	max-height: 1060px;
+	width: 920px;
 	display: flex;
 	align-items: center;
 	list-style: none;
@@ -13,10 +14,9 @@
 	background-color: white;
 }
 
-
 .text {
 	font-family: 'Arial', sans-serif;
-	font-size: 25px;
+	font-size: 20px;
 }
 
 .completed {

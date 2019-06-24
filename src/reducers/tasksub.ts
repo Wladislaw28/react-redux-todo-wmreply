@@ -12,7 +12,7 @@ if (!TASKSUB || !TASKSUB.tasksub || !TASKSUB.tasksub.length) {
 }
 
 // @ts-ignore
-const tasksub = (state = TASKSUB.tasksub, {id, text, isCompleted, type}) => {
+const tasksub = (state = TASKSUB.tasksub, {id, text, isCompleted, typeTask, type}) => {
     switch (type) {
         case ADD_TASK_IN_SUBTASK:
             return [
@@ -20,6 +20,7 @@ const tasksub = (state = TASKSUB.tasksub, {id, text, isCompleted, type}) => {
                     id,
                     text,
                     isCompleted,
+                    typeTask
                 }
             ];
         case DELETE_SUBTASK:
