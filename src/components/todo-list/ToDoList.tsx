@@ -23,28 +23,6 @@ export interface ToDoListProps {
 
 const ToDoList = ({tasksList, deleteTask, completeTask} : ToDoListProps) => {
 
-    // if (tasksList.data !== ''){
-    // 	return(
-    // 		<ul className="todo-list">
-    // 			{tasksList.map(({ id, text, data, isCompleted }) => (
-    // 				<ToDoItemDate completeTask={completeTask} deleteTask={deleteTask} id={id} key={id} text={text} data={data}
-    // 				isCompleted={isCompleted} />
-    // 			))}
-    // 		</ul>
-    // 	)
-    // } else {
-    // 	return(
-    // 		<ul className="todo-list">
-    // 			{tasksList.map(({ id, text, isCompleted , isExpansion }) => (
-    // 				<ToDoItem completeTask={completeTask} deleteTask={deleteTask} id={id} key={id} text={text}
-    // 				isCompleted={isCompleted} />,
-    // 					<ToDoSub completeTask={completeTask} deleteTask={deleteTask} id={id} key={id} text={text}
-    // 							 isCompleted={isCompleted} isExpansion={isExpansion} />
-    // 			))}
-    // 		</ul>
-    // 	)
-    // }
-
     return(
         <ul className="todo-list">
             {tasksList.map(({id, text, data, isCompleted, isExpansion, typeTask}) => {
@@ -59,14 +37,9 @@ const ToDoList = ({tasksList, deleteTask, completeTask} : ToDoListProps) => {
                         return(<ToDoItem completeTask={completeTask} deleteTask={deleteTask} id={id} key={id} text={text}
                         			isCompleted={isCompleted} typeTask={typeTask} />);
                 }
-                // return(
-                //     <ToDoSub completeTask={completeTask} deleteTask={deleteTask} id={id} key={id} text={text}
-                //              isCompleted={isCompleted} isExpansion={isExpansion}/>
-                //     )
             })}
         </ul>
         )
-
 };
 
 export default ToDoList;
