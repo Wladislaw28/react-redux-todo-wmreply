@@ -102,7 +102,7 @@ class ToDo extends React.Component<ToDoProps,ToDoState> {
 		}
 	};
 
-	getActiveTasksCounter = tasks => tasks.filter(task => !task.isCompleted).length;
+	getActiveTasksCounter = tasks => tasks.filter(task => !task.isCompleted).length-1;
 
 	filterTasks = (tasks, activeFilter) => {
 		switch (activeFilter) {
