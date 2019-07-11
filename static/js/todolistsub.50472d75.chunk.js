@@ -1,0 +1,2 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([[4],{78:function(e,t,s){},80:function(e,t,s){"use strict";s.r(t);var a=s(0),n=s(70);s(78);t.default=function(e){var t=e.tasksSubList,s=e.deleteSubTask,o=e.completeSubTask;return a.createElement("ul",{className:"todo-list-sub"},t.map(function(e){var t=e.id,u=e.text,i=e.isCompleted,c=e.typeTask;return a.createElement(n.a,{completeTask:o,deleteTask:s,id:t,key:t,text:u,isCompleted:i,typeTask:c})}))}}}]);
+//# sourceMappingURL=todolistsub.50472d75.chunk.js.map

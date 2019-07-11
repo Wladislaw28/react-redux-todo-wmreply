@@ -1,0 +1,29 @@
+{
+  "files": {
+    "footer.css": "/react-redux-todo-wmreply/static/css/footer.da5a66e1.chunk.css",
+    "footer.js": "/react-redux-todo-wmreply/static/js/footer.f49514fd.chunk.js",
+    "footer.js.map": "/react-redux-todo-wmreply/static/js/footer.f49514fd.chunk.js.map",
+    "main.css": "/react-redux-todo-wmreply/static/css/main.a79db79e.chunk.css",
+    "main.js": "/react-redux-todo-wmreply/static/js/main.e3427a12.chunk.js",
+    "main.js.map": "/react-redux-todo-wmreply/static/js/main.e3427a12.chunk.js.map",
+    "runtime~main.js": "/react-redux-todo-wmreply/static/js/runtime~main.c7613eba.js",
+    "runtime~main.js.map": "/react-redux-todo-wmreply/static/js/runtime~main.c7613eba.js.map",
+    "todolist.css": "/react-redux-todo-wmreply/static/css/todolist.e2b0e4ff.chunk.css",
+    "todolist.js": "/react-redux-todo-wmreply/static/js/todolist.5041dfc7.chunk.js",
+    "todolist.js.map": "/react-redux-todo-wmreply/static/js/todolist.5041dfc7.chunk.js.map",
+    "todolistsub.css": "/react-redux-todo-wmreply/static/css/todolistsub.a4aedbaa.chunk.css",
+    "todolistsub.js": "/react-redux-todo-wmreply/static/js/todolistsub.50472d75.chunk.js",
+    "todolistsub.js.map": "/react-redux-todo-wmreply/static/js/todolistsub.50472d75.chunk.js.map",
+    "static/css/5.5d832d7a.chunk.css": "/react-redux-todo-wmreply/static/css/5.5d832d7a.chunk.css",
+    "static/js/5.b0d6ecd8.chunk.js": "/react-redux-todo-wmreply/static/js/5.b0d6ecd8.chunk.js",
+    "static/js/5.b0d6ecd8.chunk.js.map": "/react-redux-todo-wmreply/static/js/5.b0d6ecd8.chunk.js.map",
+    "index.html": "/react-redux-todo-wmreply/index.html",
+    "precache-manifest.c571b1f35a7ece88732e464d45031003.js": "/react-redux-todo-wmreply/precache-manifest.c571b1f35a7ece88732e464d45031003.js",
+    "service-worker.js": "/react-redux-todo-wmreply/service-worker.js",
+    "static/css/5.5d832d7a.chunk.css.map": "/react-redux-todo-wmreply/static/css/5.5d832d7a.chunk.css.map",
+    "static/css/footer.da5a66e1.chunk.css.map": "/react-redux-todo-wmreply/static/css/footer.da5a66e1.chunk.css.map",
+    "static/css/main.a79db79e.chunk.css.map": "/react-redux-todo-wmreply/static/css/main.a79db79e.chunk.css.map",
+    "static/css/todolist.e2b0e4ff.chunk.css.map": "/react-redux-todo-wmreply/static/css/todolist.e2b0e4ff.chunk.css.map",
+    "static/css/todolistsub.a4aedbaa.chunk.css.map": "/react-redux-todo-wmreply/static/css/todolistsub.a4aedbaa.chunk.css.map"
+  }
+}
